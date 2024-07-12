@@ -1,0 +1,126 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+html, body{
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.phone-image{
+  width: 120px;
+  margin-bottom: 25px;
+}
+
+.form{
+  width: 100%; 
+  padding: 6px 20px; 
+  margin-bottom: 15px;
+}
+
+.kr {
+	font-family: 'Khand', sans-serif;
+	font-weight: 400;
+	font-size: 20px;
+}
+.meb {
+	font-family: 'Montserrat', sans-serif;
+	font-weight: 800;
+}
+.col-sm-12{
+  padding-left: 25px;
+  padding-right: 25px;
+}
+
+.validate{
+  margin-bottom: 70px; 
+  text-transform: uppercase;
+  text-align:left;
+}
+.texto-beneficios{
+  margin-bottom: 35px; 
+  text-align:center;
+  
+}
+.rojo {
+	color: #c41f30;
+}
+
+.btn-localizar {
+	background: #c41f30;
+	border: none;
+	border-radius: 5px;
+	color: #fff;
+	cursor: pointer;
+	padding: 6px 20px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+
+.imei{
+  text-align:left;
+}
+
+.justify {
+	text-align: justify;
+}
+
+.container{
+  height: 100%;
+  margin: 0%;
+}
+
+.spinner-circle {
+  border: 16px solid #c41f30;
+  border-top: 16px solid #fcedee;
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 1s linear infinite;
+}
+
+.spinner {
+  display: none;
+  position: fixed;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 999;
+}
+@keyframes spin {
+  from {
+      transform: rotate(0deg);
+  }
+
+  to {
+      transform: rotate(360deg);
+  }}
