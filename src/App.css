@@ -5,7 +5,10 @@
   text-align: center;
 }
 
-
+.swal2-backdrop-show{
+  background: rgba(0, 0, 0, .4);
+backdrop-filter: blur(10px) !important;
+}
 
 @keyframes logo-spin {
   from {

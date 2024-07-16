@@ -1,23 +1,62 @@
 import { useState, useEffect } from "react";
-import reactLogo from "./assets/react.svg";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
 import Swal from "sweetalert2";
+import axios from "axios";
+import FetchData from "./FetchData";
+import { Snippets } from "./Snippets";
 
 function App() {
+
   const [imei, setImei] = useState("");
-  console.log("Imei inicial: ", imei);
-  // imei = 20;
-  // console.log('Imei Reasignado', imei);
-  //   //si el formulario fue enviado
-  //setImei(20);
-  console.log("Imei mutado", imei);
+
   useEffect(() => {
-    setImei(30);
-  }, [imei]);
-  console.log("Imei con UseEffect: ", imei);
+    
+    console.log("Imei actualizado:", imei);
+
+     axios.get(`https://01qymnly6l.execute-api.us-east-1.amazonaws.com/prod/?imei=${imei}`)
+
+      .then(function (imei) {
+        console.log(imei);
+        return response.json();
+        
+      
+      })
+      .catch(function (error) {
+        // Swal.fire({
+        //   title: "<strong>El equipo es compatible con la red.</strong>",
+        //   icon: "success",
+        //   html: `
+        //     El equipo podría tener consideraciones, limitantes o requerir configuración manual. 
+        //     <br/>
+        //     Consulta la guía para configurar VoLTE <a href="https://www.configuratuequipo.com/volte/Ios/">aquí</a>
+        //     <br/>
+        //     Consulta la guía para configurar APN <a href="https://www.configuratuequipo.com/apn/Ios/">aquí</a>
+        //   `,
+        //   showCloseButton: false,
+        //   showCancelButton: false,
+        //   focusConfirm: false,
+        //   confirmButtonColor: '#c41f30',
+          
+        // });
+        
+      });
+      
+      verificarImei(imei);
+
+  }, [imei]); 
+
+  const verificarImei = (imei) => {
+    console.log("Verificando IMEI:", imei);
+
+  };
 
   
+   const GuardarImei = (event) => {
+     setImei(event.target.value);
+   }
+
+   
 
   return (
     <>
@@ -50,6 +89,8 @@ function App() {
                   <input
                     type="text"
                     name="imei"
+                    id={imei}
+                    onClick={GuardarImei}
                     placeholder="Ingresa el IMEI aquí."
                     required
                     pattern="[0-9]+"
@@ -63,6 +104,7 @@ function App() {
                     type="submit"
                     value="Valida aquí"
                     id="validate-button"
+                    
                     className="btn-localizar meb"
                   />
                   <input type="hidden" name="ban" value="50" className="kr" />
