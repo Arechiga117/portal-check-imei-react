@@ -4,7 +4,7 @@ export async function getDataImei (numImei) {
 
    let imeiArray = []
 
-  const response = await fetch(`https://01qymnly6l.execute-api.us-east-1.amazonaws.com/prod/?imei=${numImei}`)
+  const response = await fetch(`https://01qymnly6l.execute-api.us-east-1.amazonaws.com/dev/?imei=${numImei}`)
   const dataImei = await response.json()
   console.log(dataImei)
 
