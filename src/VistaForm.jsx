@@ -1,12 +1,8 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+import { useState } from "react";
 import { getDataImei } from "./getDataImei";
 
-
-const VistaForm = () => {
+export const VistaForm = () => {
   const [imei, setImei] = useState('');
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -15,9 +11,6 @@ const VistaForm = () => {
       getDataImei(imei)
       
     }
-  
-   
-
 
   const handleChange = (e) => {
     setImei(e.target.value);
@@ -93,4 +86,4 @@ const VistaForm = () => {
     </>
   );
 };
-export default VistaForm;
+
