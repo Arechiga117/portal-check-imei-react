@@ -33,7 +33,8 @@ export const VistaForm = () => {
             <div className="text-center">
               <img
                 className="phone-image"
-                src="../images/imagePhone.webp"
+                src="https://imgs.search.brave.com/228GMix3FGuFDDN9bpJB8MBDj-FjWpEd1ahqYxSTG04/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9pY29u/ZXMucHJvL3dwLWNv/bnRlbnQvdXBsb2Fk/cy8yMDIxLzA0L3N5/bWJvbGUtdGVsZXBo/b25lLXBvcnRhYmxl/LXJvdWdlLnBuZw"
+                alt="Imagen de Telefono"
               />
               <br />
               <div className="row">
