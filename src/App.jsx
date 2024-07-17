@@ -1,17 +1,13 @@
-import { useState } from "react";
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.css";
-import VistaForm from "./VistaForm";
-
+import { VistaForm } from "./VistaForm";
 
 function App() {
-  
   return (
     <div className="App">
-    <VistaForm />
-  </div>
+      <VistaForm />
+    </div>
   );
 }
 
 export default App;
-
