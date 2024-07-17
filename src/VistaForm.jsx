@@ -1,14 +1,29 @@
 import { useState } from "react";
 import { getDataImei } from "./getDataImei";
+import { Spinner } from 'reactstrap';
 
 export const VistaForm = () => {
   const [imei, setImei] = useState('');
 
+  function SpinnerLoader() {
+    return(
+        <>
+            <div className='SpinnerLoading'>
+                <Spinner color='warning'/>
+            </div>
+        </>
+    )
+  
+}
+
+
   const handleSubmit = (e) => {
+    SpinnerLoader();
     e.preventDefault();
     console.log(`imei actualizado: ${imei}`);
       
       getDataImei(imei)
+      
       
     }
 
