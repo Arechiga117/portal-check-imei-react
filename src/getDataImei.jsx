@@ -24,11 +24,6 @@ export async function getDataImei (numImei) {
   const deviceFeaturesOs = dataImei.body.deviceFeatures.os;
   const imeiSoportaEsim = dataImei.body.imei.soportaESIM;
 
-  imeiArray[0] = imeiHomologated;
-  imeiArray[1] = imeiSub_Category;
-  imeiArray[2] = dataImei.body.deviceFeatures.os;
-  imeiArray[3] = dataImei.body.imei.soportaESIM;
-
   if(dataImei === null){
     Swal.fire("Error al decodificar la respuesta JSON");
   }
@@ -102,7 +97,7 @@ export async function getDataImei (numImei) {
       });
     }
 
-    if(imeiArray[0].toLowerCase() === "información no encontrada" && imeiArray[1].toLowerCase() === "información no encontrada"){
+    if(imeiHomologated.toLowerCase() === "información no encontrada" && imeiSub_Category.toLowerCase() === "información no encontrada"){
       Swal.fire({
         title: "<strong>Lo sentimos, no hemos podido identificar la compatibilidad de tu equipo.</strong>",
         icon: "error",
@@ -134,7 +129,7 @@ export async function getDataImei (numImei) {
       });
     }
 
-    if(imeiArray[0].toLowerCase() === "no probado" && imeiArray[1].toLowerCase() === "no probado"){
+    if(imeiHomologated.toLowerCase() === "no probado" && imeiSub_Category.toLowerCase() === "no probado"){
       Swal.fire({
         title: "<strong>El equipo podría requerir configuración manual para conectarse a la red.</strong>",
         icon: "warning",
@@ -159,7 +154,7 @@ export async function getDataImei (numImei) {
       });
     }
 
-    if(imeiArray[0].toLowerCase() === "vozapp" && imeiArray[1].toLowerCase() === "voz y datos"){
+    if(imeiHomologated.toLowerCase() === "vozapp" && imeiSub_Category.toLowerCase() === "voz y datos"){
       Swal.fire({
         title: "<strong>El equipo es compatible únicamente con VozApp.</strong>",
         icon: "success",
@@ -182,7 +177,7 @@ export async function getDataImei (numImei) {
       });
     }
 
-    if((imeiArray[0].toLowerCase() === "volte" || imeiArray[0].toLowerCase() === "homologado" || imeiArray[0].toLowerCase() === "homologados o volte") && (imeiArray[1].toLowerCase() == "voz y datos" || imeiArray[1].toLowerCase() === "solo datos")){
+    if((imeiHomologated.toLowerCase() === "volte" || imeiHomologated.toLowerCase() === "homologado" || imeiHomologated.toLowerCase() === "homologados o volte") && (imeiSub_Category.toLowerCase() == "voz y datos" || imeiSub_Category.toLowerCase() === "solo datos")){
       Swal.fire({
         title: "<strong>El equipo es compatible con la red.</strong>",
         icon: "success",
@@ -203,30 +198,7 @@ export async function getDataImei (numImei) {
       });
     }
 
-    if(imeiArray[0].toLowerCase() == "compatible probado" && (imeiArray[1].toLowerCase() === "voz y datos" || imeiArray[1].toLowerCase() === "solo voz" || imeiArray[1].toLowerCase() === "band 28")){
-      Swal.fire({
-        title: "<strong>El equipo es compatible con la red.</strong>",
-        icon: "success",
-        html: `
-            El equipo podría tener consideraciones, limitantes o requerir configuración manual. <br>
-            <br/>
-            <strong>Equipo: </strong> ${ imeiHomologated } <br>
-            <strong>Uso: </strong>${ imeiSub_Category }<br>
-            <strong>eSIM: </strong> ${ imeiSoportaEsim }<br>
-            <br/>
-            ${leyenda1}
-            <br/>
-            ${leyenda2}
-          `,
-        showCloseButton: false,
-        showCancelButton: false,
-        focusConfirm: false,
-        confirmButtonColor: "#c41f30",
-        width: "80%",
-      });
-    }
-
-    if(imeiArray[0].toLowerCase() === "COMPATIBLE" && (imeiArray[1].toLowerCase() == "voz y datos" || imeiArray[1].toLowerCase() === "Solo Datos" || imeiArray[1].toLowerCase() === "solo voz" || imeiArray[1].toLowerCase() === "band 28") ){
+    if(imeiHomologated.toLowerCase() == "compatible probado" && (imeiSub_Category.toLowerCase() === "voz y datos" || imeiSub_Category.toLowerCase() === "solo voz" || imeiSub_Category.toLowerCase() === "band 28")){
       Swal.fire({
         title: "<strong>El equipo es compatible con la red.</strong>",
         icon: "success",
@@ -249,7 +221,30 @@ export async function getDataImei (numImei) {
       });
     }
 
-    if(imeiArray[0].toLowerCase() === "compatible homologado" && (imeiArray[1].toLowerCase() == "voz y datos" || imeiArray[1].toLowerCase() === "solo datos" || imeiArray[1].toLowerCase() === "solo voz") ){
+    if(imeiHomologated.toLowerCase() === "COMPATIBLE" && (imeiSub_Category.toLowerCase() == "voz y datos" || imeiSub_Category.toLowerCase() === "Solo Datos" || imeiSub_Category.toLowerCase() === "solo voz" || imeiSub_Category.toLowerCase() === "band 28") ){
+      Swal.fire({
+        title: "<strong>El equipo es compatible con la red.</strong>",
+        icon: "success",
+        html: `
+            El equipo podría tener consideraciones, limitantes o requerir configuración manual. <br>
+            <br/>
+            <strong>Equipo: </strong> ${ imeiHomologated } <br>
+            <strong>Uso: </strong>${ imeiSub_Category }<br>
+            <strong>eSIM: </strong> ${ imeiSoportaEsim }<br>
+            <br/>
+            ${leyenda1}
+            <br/>
+            ${leyenda2}
+          `,
+        showCloseButton: false,
+        showCancelButton: false,
+        focusConfirm: false,
+        confirmButtonColor: "#c41f30",
+        width: "80%",
+      });
+    }
+
+    if(imeiHomologated.toLowerCase() === "compatible homologado" && (imeiSub_Category.toLowerCase() == "voz y datos" || imeiSub_Category.toLowerCase() === "solo datos" || imeiSub_Category.toLowerCase() === "solo voz") ){
       Swal.fire({
         title: "<strong>El equipo es compatible con la red.</strong>",
         icon: "success",
