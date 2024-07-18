@@ -1,31 +1,23 @@
 import { useState } from "react";
 import { getDataImei } from "./getDataImei";
-import { Spinner } from 'reactstrap';
+import { Spinner } from "reactstrap";
 
 export const VistaForm = () => {
-  const [imei, setImei] = useState('');
+  const [imei, setImei] = useState("");
 
-  function SpinnerLoader() {
-    return(
-        <>
-            <div className='SpinnerLoading'>
-                <Spinner color='warning'/>
-            </div>
-        </>
-    )
-  
-}
-
+  // function SpinnerLoader() {
+  //   document.getElementById("spinner").style.display = "block";
+  //   var button = document.getElementById("validate-button");
+  //   button.disabled = true;
+  // }
 
   const handleSubmit = (e) => {
-    SpinnerLoader();
     e.preventDefault();
     console.log(`imei actualizado: ${imei}`);
-      
-      getDataImei(imei)
-      
-      
-    }
+
+    getDataImei(imei);
+    // SpinnerLoader();
+  };
 
   const handleChange = (e) => {
     setImei(e.target.value);
@@ -95,11 +87,10 @@ export const VistaForm = () => {
             </div>
           </div>
         </form>
-        <div id="spinner" className="spinner">
-          <div className="spinner-circle"></div>
+        <div className="Spinner" id="mostrar">
+          <div id="spinner" className="spinner"></div>
         </div>
       </div>
     </>
   );
 };
-
