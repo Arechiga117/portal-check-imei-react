@@ -2,7 +2,8 @@ import Swal from "sweetalert2";
 
 export async function getDataImei(numImei) {
   const response = await fetch(
-    `https://is558642sb.execute-api.us-east-1.amazonaws.com/dev/?imei=${numImei}`,
+    `https://n5tumxjzsf.execute-
+api.us-east-1.amazonaws.com/dev//?imei=${numImei}`,
     {
       method: "GET",
       headers: {
