@@ -4,19 +4,17 @@ import { Spinner } from "reactstrap";
 
 export const VistaForm = () => {
   const [imei, setImei] = useState("");
+  const [showSpinner, setShowSpinner] = useState(false);
+  
 
-  // function SpinnerLoader() {
-  //   document.getElementById("spinner").style.display = "block";
-  //   var button = document.getElementById("validate-button");
-  //   button.disabled = true;
-  // }
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setShowSpinner(true);
     console.log(`imei actualizado: ${imei}`);
 
-    getDataImei(imei);
-    // SpinnerLoader();
+    await getDataImei(imei);
+
+    setShowSpinner(false);
   };
 
   const handleChange = (e) => {
@@ -87,10 +85,12 @@ export const VistaForm = () => {
             </div>
           </div>
         </form>
-        <div className="Spinner" id="mostrar">
-          <div id="spinner" className="spinner"></div>
+        {showSpinner && (
+          <div className="Spinner" >
+            <Spinner color="danger"/>
+          </div>
+        )}
         </div>
-      </div>
     </>
   );
 };
