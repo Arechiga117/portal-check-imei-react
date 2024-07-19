@@ -2,7 +2,13 @@ import Swal from "sweetalert2";
 
 export async function getDataImei(numImei) {
   const response = await fetch(
-    `https://is558642sb.execute-api.us-east-1.amazonaws.com/dev/?imei=${numImei}`
+    `https://is558642sb.execute-api.us-east-1.amazonaws.com/dev/?imei=${numImei}`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
   );
   const dataImei = await response.json();
   console.log(dataImei);
@@ -22,3 +28,4 @@ export async function getDataImei(numImei) {
     width: "80%"
   });
 }
+
